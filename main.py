@@ -25,11 +25,12 @@ def main(page: ft.Page):
         page.scroll = "hidden"
 
         # --- CABEÇALHO DE RESPEITO ---
+        # APOLINÁRIO: AQUI ESTAVA O ERRO DE SINTAXE. ATUALIZADO PARA O FLET NOVO!
         cabecalho = ft.Container(
             padding=ft.padding.only(top=40, bottom=20, left=20, right=20),
             gradient=ft.LinearGradient(
-                begin=ft.alignment.top_center,
-                end=ft.alignment.bottom_center,
+                begin=ft.Alignment.TOP_CENTER,
+                end=ft.Alignment.BOTTOM_CENTER,
                 colors=[ft.Colors.RED_900, ft.Colors.BLACK]
             ),
             border=ft.border.only(bottom=ft.border.BorderSide(2, ft.Colors.RED_600)),
