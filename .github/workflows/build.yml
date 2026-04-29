@@ -1,0 +1,37 @@
+name: Compilar APK Sericom Turmas
+
+on:
+  workflow_dispatch: # Isso cria o botão de apertar manualmente
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Baixar o Código
+        uses: actions/checkout@v4
+
+      - name: Preparar o Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Preparar o Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+
+      - name: Instalar Requerentes (Bibliotecas)
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Compilar o Aplicativo (APK)
+        run: flet build apk
+
+      - name: Salvar o APK para Download
+        uses: actions/upload-artifact@v4
+        with:
+          name: SericomTurmas_APK
+          path: build/apk/**/*.apk
+          
