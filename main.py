@@ -25,7 +25,6 @@ def main(page: ft.Page):
         page.scroll = "hidden"
 
         # --- CABEÇALHO DE RESPEITO ---
-        # APOLINÁRIO: AQUI ESTAVA O ERRO DE SINTAXE. ATUALIZADO PARA O FLET NOVO!
         cabecalho = ft.Container(
             padding=ft.padding.only(top=40, bottom=20, left=20, right=20),
             gradient=ft.LinearGradient(
@@ -99,11 +98,11 @@ def main(page: ft.Page):
                                 )
                             )
 
+                        # APOLINÁRIO: A COR FOI MOVIDA DO CARD PARA O CONTAINER!
                         cartao_turma = ft.Card(
-                            color=ft.Colors.BLACK87,
                             elevation=8,
-                            shape=ft.RoundedRectangleBorder(radius=10),
                             content=ft.Container(
+                                bgcolor=ft.Colors.BLACK87,
                                 border=ft.border.all(1, ft.Colors.RED_800),
                                 border_radius=10,
                                 content=ft.ExpansionTile(
